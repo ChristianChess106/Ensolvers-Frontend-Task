@@ -47,7 +47,7 @@ export const TodoApp = () => {
 
   return (
     <>
-    <h1>TodoApp ({todos.length})</h1>
+    <h1>TodoApp ({todos.length}) - Christian Mora</h1>
     <hr/>
     <div className='todo'>
       <div className='todo__agregar'>

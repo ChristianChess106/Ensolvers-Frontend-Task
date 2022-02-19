@@ -25,6 +25,27 @@ export const startLoadingTodo = (todo) => {
     };
 };
 
+export const startUploadingNote = (id,todo) => {
+
+    return async(dispatch) =>{
+        console.log(id);
+        console.log(todo);
+        
+        try {
+            const resp = await fetchApi(`todo/${id}`,todo,'PUT');
+            const body = await resp.json();
+            console.log(body);
+            if(body.ok){
+                dispatch(getTodos());
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+};
+
 export const addTodo = (id,todo) => {
 
     return{
@@ -44,15 +65,14 @@ export const loadTodos = () => {
            const resp = await fetchApi('todo');
            const body = await resp.json();
            
-           if(body.length >= 1){
+           if(body.length > 0){
                body.forEach(body => {
                    todo.id = body.idtodoitem;
                    todo.titulo = body.titulo;
                    todo.description = body.description;
+                   dispatch(addTodo(todo.id,todo));
     
                })
-               dispatch(addTodo(todo.id,todo));
-               console.log('se añadio vacio');
            }
            else{
                dispatch(getTodos());
@@ -95,6 +115,17 @@ export const startDeleteTodo = (id) => {
         }
     }
 
+};
+
+export const activeTodo = (id,todo) => {
+
+    return{
+        type:types.activeTodo,
+        payload:{
+            id,
+            ...todo
+        }
+    }
 };
 
 export const deleteTodo = (id) => {

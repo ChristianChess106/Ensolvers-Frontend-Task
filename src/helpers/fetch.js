@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:8082/api';
+const baseUrl = process.env.REACT_APP_API_URL;
 
 export const fetchApi = (endpoint, data, method = 'GET') => {
 

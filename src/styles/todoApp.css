@@ -1,0 +1,89 @@
+body{
+    padding: 50px;
+}
+
+p{
+    margin: 0;
+}
+.todo{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+@media (min-width: 768px) { 
+    .todo{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+.todo__formulario{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+@media (min-width: 768px) { 
+    .todo__formulario{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+.todo__agregar--titulo{
+    border: solid 0.2rem rgb(69, 69, 255);
+    margin: 1rem;
+    padding: 1rem;
+    
+}
+.todo__agregar--description{
+    margin: 1rem;
+    padding: 1rem;
+ 
+}
+.todo__agregar__Enviar{
+
+    background-color: rgb(115, 115, 255);
+    border: 1;
+    display: flex;
+    font-size: 1.8rem;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+    margin: 0;
+    width: 100%;
+}
+@media (min-width: 768px) { 
+    .todo__agregar__Enviar{
+        grid-column: 1/3;
+        width: 100%;
+    }
+}
+.todo__lista{
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+.todo__contenedor{
+    padding: auto;
+    margin: auto;
+}
+.todo__elementos{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: auto 1rem;
+    overflow-x: scroll;
+    width: 13rem;
+}
+.todo__titulo{
+    color: rgb(15, 15, 85);
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    margin-right: 1rem;
+}
+.todo__borrar{
+    color: white;
+    background-color: red;
+    margin-left: 2rem;
+    width: 5rem;
+}
+@media (min-width: 768px) { 
+    .todo__borrar{
+        margin: auto 1rem;
+        width: 10rem;
+    }
+}
